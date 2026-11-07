@@ -1,0 +1,35 @@
+[project]
+name = "loanwise-vercel-api"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.34,<1",
+  "sqlalchemy>=2.0,<3",
+  "alembic>=1.14,<2",
+  "pydantic>=2.10,<3",
+  "pydantic-settings>=2.7,<3",
+  "python-multipart>=0.0.20",
+  "httpx>=0.28,<1",
+  "psycopg[binary]>=3.2,<4",
+  "numpy==2.5.4",
+  "pandas==3.1.1",
+  "scikit-learn==1.9.1",
+  "scipy>=1.15,<2",
+  "xgboost-cpu>=2.1,<4",
+  "shap==0.54.1",
+  "joblib>=1.4,<2",
+  "langgraph>=0.2,<2",
+  "rank-bm25>=0.2.2,<1",
+  "pypdf>=5,<8",
+  "python-docx>=1.1,<2",
+  "pypdfium2>=5,<6",
+  "pillow>=11,<14",
+  "rapidocr_onnxruntime>=1.4,<2",
+  "psutil>=6,<8",
+  "opencv-python-headless>=4.10,<5"
+]
+
+[tool.uv]
+package = false
+exclude-dependencies = ["opencv-python"]

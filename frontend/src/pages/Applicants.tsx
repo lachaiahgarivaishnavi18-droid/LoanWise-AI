@@ -1,0 +1,18 @@
+import { useEffect, useState, useCallback, type ReactNode } from 'react'
+import { Routes, Route, NavLink, Link, useNavigate, useLocation } from 'react-router-dom'
+import { LayoutDashboard, Users, FileText, ScanLine, ChartNoAxesCombined, ShieldCheck, Network, Library, MessagesSquare, Settings2, ArrowUpRight, ArrowRight, Plus, Search, Bell, ChevronDown, LogOut, Download, Loader2, Check, CircleHelp, Menu, X, Sparkles, Clock3, Activity, Landmark, SlidersHorizontal, RefreshCw, Upload, CheckCircle2 } from 'lucide-react'
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, AreaChart, Area, ReferenceLine } from 'recharts'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { api, errorText, money, exportJSON } from '../api'
+import type { User, Product, Application, Assessment, Doc, Risk, Evidence } from '../types'
+
+import { Badge, Empty, Busy, ErrorBox, Panel, Heading, Stat, ApplicationTable, EvidenceCards, statusTone, colors } from '../components/ui'
+export function Applicants() {
+  const [data,setData]=useState<any>({items:[],total:0}),[q,setQ]=useState(''),[page,setPage]=useState(1),[name,setName]=useState(''),[error,setError]=useState(''),[selected,setSelected]=useState<any>(null)
+  const load=useCallback(()=>api.get('/applicants',{params:{q,page}}).then(r=>setData(r.data)).catch(e=>setError(errorText(e))),[q,page]);useEffect(()=>{load()},[load])
+  async function create(e:React.FormEvent) {e.preventDefault();try{await api.post('/applicants',{name});setName('');load()}catch(e){setError(errorText(e))}}
+  return <><Heading title="Applicant directory" description="Authorized applicant profiles and their application history."/><ErrorBox text={error}/><div className="two-col"><Panel title="Applicants" subtitle={`${data.total} records`} action={<div className="search"><Search size={16}/><input aria-label="Search applicants" placeholder="Search applicants" value={q} onChange={e=>{setQ(e.target.value);setPage(1)}}/></div>}><div className="list">{data.items.map((a:any)=><button key={a.id} onClick={()=>api.get('/applicants/'+a.id).then(r=>setSelected(r.data)).catch(e=>setError(errorText(e)))}><span className="avatar">DA</span><span><b>{a.name}</b><small>{a.reference}</small></span><Badge>{a.synthetic?'Synthetic':'Declared record'}</Badge><ArrowUpRight size={16}/></button>)}</div><div className="pagination"><button disabled={page===1} onClick={()=>setPage(page-1)}>Previous</button><span>Page {page}</span><button disabled={page*25>=data.total} onClick={()=>setPage(page+1)}>Next</button></div></Panel><div className="stack"><Panel title="Add an applicant" subtitle="A record belongs to the analyst who creates it."><form className="padded" onSubmit={create}><label>Applicant name<input value={name} onChange={e=>setName(e.target.value)} minLength={2} required maxLength={100}/></label><button className="primary"><Plus size={16}/>Create applicant</button></form></Panel>{selected&&<Panel title={selected.applicant.name} subtitle={selected.applicant.reference}><div className="padded"><Badge tone="amber">{selected.applicant.synthetic?'SYNTHETIC PROFILE':'DECLARED PROFILE'}</Badge><p>{selected.applications.length} applications</p>{selected.applications.map((a:Application)=><Link className="record-link" key={a.id} to={'/assessment?application='+a.id}>{a.product_name} · {money(a.amount)}<ArrowUpRight size={16}/></Link>)}<Link className="secondary" to={'/applications/new?applicant='+selected.applicant.id}>New application</Link></div></Panel>}</div></div></>
+}
+

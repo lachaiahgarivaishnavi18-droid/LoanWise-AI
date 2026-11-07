@@ -1,0 +1,8 @@
+SYNTHETIC DEMONSTRATION POLICY — Home Advantage
+Version DEMO-2026.1. Effective 2026-01-01. Currency INR.
+Minimum verified monthly income: 40000. Operator: min.
+Maximum debt-to-income ratio (%): 50. Operator: max.
+Maximum requested principal: 10000000. Operator: max.
+Maximum tenure in months: 360. Operator: max.
+Minimum employment duration in months: 12. Operator: min.
+All assessments require authorized human review. These invented demo thresholds are not bank rules or legal guidance.

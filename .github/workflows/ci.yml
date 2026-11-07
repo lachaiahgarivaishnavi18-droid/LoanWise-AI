@@ -1,0 +1,61 @@
+name: Verify LoanWise
+on: [push, pull_request]
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: backend/requirements-lock.txt
+      - run: pip install -r backend/requirements.txt -c backend/requirements-lock.txt
+      - run: python -m pytest -q
+        working-directory: backend
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --global pnpm@11.25.0
+      - run: pnpm install --frozen-lockfile
+        working-directory: frontend
+      - run: pnpm test && pnpm build
+        working-directory: frontend
+  postgres:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: loanwise_test
+          POSTGRES_PASSWORD: ci-disposable-test-password
+          POSTGRES_DB: loanwise_test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U loanwise_test"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://loanwise_test:ci-disposable-test-password@127.0.0.1:5432/loanwise_test
+      LOANWISE_TEST_DATABASE_URL: postgresql+psycopg://loanwise_test:ci-disposable-test-password@127.0.0.1:5432/loanwise_test
+      DEMO_MODE: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r backend/requirements.txt -c backend/requirements-lock.txt
+      - run: python -m alembic upgrade head && python -m pytest -q
+        working-directory: backend
+  containers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install httpx pillow
+      - run: python scripts/test-containers.py

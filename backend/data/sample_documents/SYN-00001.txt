@@ -1,0 +1,7 @@
+SYNTHETIC FINANCIAL DOCUMENT
+Applicant reference: SYN-00001
+Monthly income: UNKNOWN
+Monthly debt: 2500
+Employment months: 65
+Income conflict scenario: True
+Not a real customer, bank record or verification.

@@ -1,0 +1,4357 @@
+[
+  {
+    "name": "loan_products",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "active_version_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "policy_versions.id",
+        "fk_name": "fk_product_active_version",
+        "use_alter": true
+      }
+    ],
+    "unique": [
+      [
+        "name"
+      ]
+    ],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "migration_issues",
+    "columns": [
+      {
+        "name": "entity_type",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "entity_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "message",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "ml_models",
+    "columns": [
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "name"
+      ]
+    ],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "permissions",
+    "columns": [
+      {
+        "name": "name",
+        "type": "String",
+        "length": 80,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "roles",
+    "columns": [
+      {
+        "name": "name",
+        "type": "String",
+        "length": 30,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "model_versions",
+    "columns": [
+      {
+        "name": "model_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "ml_models.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "artifact_path",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "model_id",
+        "version"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_model_versions_model_id",
+        "columns": [
+          "model_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "policy_versions",
+    "columns": [
+      {
+        "name": "product_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_products.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "revision",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "jurisdiction",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "product_id",
+        "version",
+        "revision"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_policy_versions_product_id",
+        "columns": [
+          "product_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "role_permissions",
+    "columns": [
+      {
+        "name": "role_name",
+        "type": "String",
+        "length": 30,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": "roles.name",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "permission_name",
+        "type": "String",
+        "length": 80,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": "permissions.name",
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "users",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "email",
+        "type": "String",
+        "length": 254,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "password_hash",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "role",
+        "type": "String",
+        "length": 30,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "roles.name",
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_users_email",
+        "columns": [
+          "email"
+        ],
+        "unique": true
+      }
+    ]
+  },
+  {
+    "name": "applicants",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "owner_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reference",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "reference"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_applicants_owner_id",
+        "columns": [
+          "owner_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "audit_logs",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "user_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "action",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "resource",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "calibration_bins",
+    "columns": [
+      {
+        "name": "model_version_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "model_versions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "split",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "ordinal",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "predicted",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "observed",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "model_version_id",
+        "split",
+        "ordinal"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_calibration_bins_model_version_id",
+        "columns": [
+          "model_version_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "fairness_evaluations",
+    "columns": [
+      {
+        "name": "model_version_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "model_versions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "dataset_reference",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "governance_reference",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "metric",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "group_reference",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "limitations",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_fairness_evaluations_model_version_id",
+        "columns": [
+          "model_version_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "model_evaluations",
+    "columns": [
+      {
+        "name": "model_version_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "model_versions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "split",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "metric",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "model_version_id",
+        "split",
+        "metric"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_model_evaluations_model_version_id",
+        "columns": [
+          "model_version_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "rag_queries",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "user_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "question",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "response",
+        "type": "JSON",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "sessions",
+    "columns": [
+      {
+        "name": "token_hash",
+        "type": "String",
+        "length": 64,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "user_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "expires",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "generated_responses",
+    "columns": [
+      {
+        "name": "query_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "rag_queries.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "text",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "mode",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "unsupported_claims",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "query_id"
+      ]
+    ],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "loan_applications",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "applicant_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "applicants.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "product_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_products.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "amount",
+        "type": "Numeric",
+        "length": null,
+        "precision": 18,
+        "scale": 2,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "tenure_months",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "annual_rate",
+        "type": "Numeric",
+        "length": null,
+        "precision": 7,
+        "scale": 4,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_application_tenure",
+        "sql": "tenure_months BETWEEN 1 AND 600"
+      },
+      {
+        "name": "ck_application_rate",
+        "sql": "annual_rate IS NULL OR annual_rate BETWEEN 0 AND 100"
+      },
+      {
+        "name": "ck_application_amount",
+        "sql": "amount > 0"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_loan_applications_applicant_id",
+        "columns": [
+          "applicant_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "agent_executions",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "duration_ms",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "output",
+        "type": "JSON",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "retries",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_agent_executions_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "applicant_profiles",
+    "columns": [
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "currency",
+        "type": "String",
+        "length": 3,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "asset_value",
+        "type": "Numeric",
+        "length": null,
+        "precision": 18,
+        "scale": 2,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "asset_verified",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "income_conflict",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "application_id"
+      ]
+    ],
+    "checks": [
+      {
+        "name": "ck_profile_asset_positive",
+        "sql": "asset_value IS NULL OR asset_value > 0"
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "application_feedback",
+    "columns": [
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "author_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "text",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_application_feedback_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "eligibility_assessments",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "result",
+        "type": "JSON",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_eligibility_assessments_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "financial_documents",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "owner_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "loan_applications.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "title",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "kind",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "path",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "effective_date",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "product_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "loan_products.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reviewed",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "extraction_method",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "extraction_confidence",
+        "type": "Float",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "extraction_verified",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "quarantined",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_document_scope",
+        "sql": "(kind = 'policy' AND product_id IS NOT NULL AND application_id IS NULL) OR (kind = 'financial' AND application_id IS NOT NULL AND product_id IS NULL)"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_financial_documents_owner_id",
+        "columns": [
+          "owner_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "credit_accounts",
+    "columns": [
+      {
+        "name": "reliable_score",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "utilization_percent",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reported_missed_payments",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "verified",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "profile_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "applicant_profiles.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_type",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_credit_utilization",
+        "sql": "utilization_percent IS NULL OR utilization_percent BETWEEN 0 AND 100"
+      },
+      {
+        "name": "ck_credit_missed",
+        "sql": "reported_missed_payments IS NULL OR reported_missed_payments >= 0"
+      },
+      {
+        "name": "ck_credit_score",
+        "sql": "reliable_score IS NULL OR reliable_score BETWEEN 300 AND 900"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_credit_accounts_profile_id",
+        "columns": [
+          "profile_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "document_pages",
+    "columns": [
+      {
+        "name": "document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "page_number",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "revision",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "active",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "text",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "extraction_method",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "ocr_confidence",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "document_id",
+        "page_number",
+        "revision"
+      ]
+    ],
+    "checks": [
+      {
+        "name": "ck_document_page_positive",
+        "sql": "page_number >= 1"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_document_pages_document_id",
+        "columns": [
+          "document_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "document_permissions",
+    "columns": [
+      {
+        "name": "document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "role_name",
+        "type": "String",
+        "length": 30,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": "roles.name",
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "document_warnings",
+    "columns": [
+      {
+        "name": "document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "message",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_document_warnings_document_id",
+        "columns": [
+          "document_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "employment_records",
+    "columns": [
+      {
+        "name": "duration_months",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "profile_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "applicant_profiles.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_type",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_employment_duration",
+        "sql": "duration_months >= 0 AND duration_months <= 900"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_employment_records_profile_id",
+        "columns": [
+          "profile_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "expense_records",
+    "columns": [
+      {
+        "name": "monthly_amount",
+        "type": "Numeric",
+        "length": null,
+        "precision": 18,
+        "scale": 2,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "category",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "profile_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "applicant_profiles.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_type",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_expense_nonnegative",
+        "sql": "monthly_amount >= 0"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_expense_records_profile_id",
+        "columns": [
+          "profile_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "financial_features",
+    "columns": [
+      {
+        "name": "assessment_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "eligibility_assessments.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "unit",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "assessment_id",
+        "name"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_financial_features_assessment_id",
+        "columns": [
+          "assessment_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "human_reviews",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "assessment_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "eligibility_assessments.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reviewer_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "comment",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_review_status",
+        "sql": "status IN ('REVIEWED','MORE_INFORMATION_REQUIRED')"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_human_reviews_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "income_records",
+    "columns": [
+      {
+        "name": "amount",
+        "type": "Numeric",
+        "length": null,
+        "precision": 18,
+        "scale": 2,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "frequency",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "verified",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "profile_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "applicant_profiles.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_type",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_income_frequency",
+        "sql": "frequency IN ('MONTHLY','ANNUAL','WEEKLY','FORTNIGHTLY')"
+      },
+      {
+        "name": "ck_income_nonnegative",
+        "sql": "amount >= 0"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_income_records_profile_id",
+        "columns": [
+          "profile_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "knowledge_sources",
+    "columns": [
+      {
+        "name": "document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_type",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "authorized",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_uri",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "document_id"
+      ]
+    ],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "liabilities",
+    "columns": [
+      {
+        "name": "monthly_payment",
+        "type": "Numeric",
+        "length": null,
+        "precision": 18,
+        "scale": 2,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "outstanding_balance",
+        "type": "Numeric",
+        "length": null,
+        "precision": 18,
+        "scale": 2,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "profile_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "applicant_profiles.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_type",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_liability_nonnegative",
+        "sql": "monthly_payment >= 0"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_liabilities_profile_id",
+        "columns": [
+          "profile_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "model_predictions",
+    "columns": [
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "assessment_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "eligibility_assessments.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "model_version_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "model_versions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "score",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "category",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "synthetic_model",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_model_predictions_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      },
+      {
+        "name": "ix_model_predictions_assessment_id",
+        "columns": [
+          "assessment_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "document_chunks",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "section",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "text",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "active",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "document_page_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "document_pages.id",
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_document_chunks_document_page_id",
+        "columns": [
+          "document_page_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "eligibility_criteria",
+    "columns": [
+      {
+        "name": "policy_version_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "policy_versions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "key",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "label",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "operator",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "threshold",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "document_page_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "document_pages.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "quote",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "policy_version_id",
+        "key"
+      ]
+    ],
+    "checks": [
+      {
+        "name": "ck_criterion_threshold",
+        "sql": "threshold >= 0"
+      },
+      {
+        "name": "ck_criterion_operator",
+        "sql": "operator IN ('min','max')"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_eligibility_criteria_policy_version_id",
+        "columns": [
+          "policy_version_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "extracted_financial_entities",
+    "columns": [
+      {
+        "name": "document_page_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "document_pages.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "ordinal",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "field",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "quote",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "verified",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "active",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_extracted_financial_entities_document_page_id",
+        "columns": [
+          "document_page_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "final_human_decisions",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "review_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "human_reviews.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reviewer_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "decision",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "rationale",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "review_id"
+      ]
+    ],
+    "checks": [
+      {
+        "name": "ck_human_decision",
+        "sql": "decision IN ('APPROVED','REJECTED','DEFERRED')"
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "name": "policy_documents",
+    "columns": [
+      {
+        "name": "document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "policy_version_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "policy_versions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "knowledge_source_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "knowledge_sources.id",
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "knowledge_source_id"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_policy_documents_policy_version_id",
+        "columns": [
+          "policy_version_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "prediction_features",
+    "columns": [
+      {
+        "name": "prediction_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "model_predictions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "missing",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "prediction_id",
+        "name"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_prediction_features_prediction_id",
+        "columns": [
+          "prediction_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "repayment_records",
+    "columns": [
+      {
+        "name": "credit_account_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "credit_accounts.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "period",
+        "type": "String",
+        "length": 10,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "source_document_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "financial_documents.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "credit_account_id",
+        "period"
+      ]
+    ],
+    "checks": [
+      {
+        "name": "ck_repayment_status",
+        "sql": "status IN ('PAID','MISSED','UNKNOWN')"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_repayment_records_credit_account_id",
+        "columns": [
+          "credit_account_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "reviewer_comments",
+    "columns": [
+      {
+        "name": "review_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "human_reviews.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reviewer_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "text",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_reviewer_comments_review_id",
+        "columns": [
+          "review_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "shap_explanations",
+    "columns": [
+      {
+        "name": "prediction_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "model_predictions.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "baseline",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "units",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "prediction_id"
+      ]
+    ],
+    "checks": [],
+    "indexes": []
+  },
+  {
+    "name": "eligibility_criterion_results",
+    "columns": [
+      {
+        "name": "assessment_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "eligibility_assessments.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "criterion_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "eligibility_criteria.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "observed_value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "evidence_valid",
+        "type": "Boolean",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "assessment_id",
+        "criterion_id"
+      ]
+    ],
+    "checks": [
+      {
+        "name": "ck_criterion_status",
+        "sql": "status IN ('SATISFIED','NOT_SATISFIED','UNKNOWN','CONFLICTING','NEEDS_HUMAN_REVIEW')"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_eligibility_criterion_results_assessment_id",
+        "columns": [
+          "assessment_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "extraction_corrections",
+    "columns": [
+      {
+        "name": "entity_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "extracted_financial_entities.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "previous_value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "corrected_value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reason",
+        "type": "Text",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "reviewer_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_extraction_corrections_entity_id",
+        "columns": [
+          "entity_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "retrieved_evidence",
+    "columns": [
+      {
+        "name": "query_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "rag_queries.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "assessment_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "eligibility_assessments.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "chunk_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "document_chunks.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "rank",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "score",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [],
+    "checks": [
+      {
+        "name": "ck_evidence_context",
+        "sql": "(query_id IS NOT NULL AND assessment_id IS NULL) OR (query_id IS NULL AND assessment_id IS NOT NULL)"
+      }
+    ],
+    "indexes": [
+      {
+        "name": "ix_retrieved_evidence_chunk_id",
+        "columns": [
+          "chunk_id"
+        ],
+        "unique": false
+      },
+      {
+        "name": "ix_retrieved_evidence_assessment_id",
+        "columns": [
+          "assessment_id"
+        ],
+        "unique": false
+      },
+      {
+        "name": "ix_retrieved_evidence_query_id",
+        "columns": [
+          "query_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "shap_contributions",
+    "columns": [
+      {
+        "name": "explanation_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "shap_explanations.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "prediction_feature_id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "prediction_features.id",
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "value",
+        "type": "Double",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "precision": null,
+        "scale": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null,
+        "fk_name": null,
+        "use_alter": false
+      }
+    ],
+    "unique": [
+      [
+        "explanation_id",
+        "prediction_feature_id"
+      ]
+    ],
+    "checks": [],
+    "indexes": [
+      {
+        "name": "ix_shap_contributions_explanation_id",
+        "columns": [
+          "explanation_id"
+        ],
+        "unique": false
+      }
+    ]
+  }
+]

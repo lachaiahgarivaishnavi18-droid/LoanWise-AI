@@ -1,0 +1,849 @@
+[
+  {
+    "name": "loan_products",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "description",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "policy_version",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "jurisdiction",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "criteria",
+        "type": "JSON",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [
+      [
+        "name"
+      ]
+    ],
+    "indexes": []
+  },
+  {
+    "name": "users",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "email",
+        "type": "String",
+        "length": 254,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "password_hash",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "role",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": [
+      {
+        "name": "ix_users_email",
+        "columns": [
+          "email"
+        ],
+        "unique": true
+      }
+    ]
+  },
+  {
+    "name": "applicants",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "owner_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "reference",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [
+      [
+        "reference"
+      ]
+    ],
+    "indexes": [
+      {
+        "name": "ix_applicants_owner_id",
+        "columns": [
+          "owner_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "audit_logs",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "user_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "users.id"
+      },
+      {
+        "name": "action",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "resource",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": []
+  },
+  {
+    "name": "rag_queries",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "user_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id"
+      },
+      {
+        "name": "question",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "response",
+        "type": "JSON",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": []
+  },
+  {
+    "name": "sessions",
+    "columns": [
+      {
+        "name": "token_hash",
+        "type": "String",
+        "length": 64,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "user_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id"
+      },
+      {
+        "name": "expires",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": []
+  },
+  {
+    "name": "loan_applications",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "applicant_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "applicants.id"
+      },
+      {
+        "name": "product_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_products.id"
+      },
+      {
+        "name": "amount",
+        "type": "Double",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "tenure_months",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "annual_rate",
+        "type": "Double",
+        "length": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null
+      },
+      {
+        "name": "profile",
+        "type": "JSON",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": [
+      {
+        "name": "ix_loan_applications_applicant_id",
+        "columns": [
+          "applicant_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "agent_executions",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id"
+      },
+      {
+        "name": "name",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "duration_ms",
+        "type": "Double",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "output",
+        "type": "JSON",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "retries",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": [
+      {
+        "name": "ix_agent_executions_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "eligibility_assessments",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id"
+      },
+      {
+        "name": "result",
+        "type": "JSON",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": [
+      {
+        "name": "ix_eligibility_assessments_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "financial_documents",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "owner_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id"
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "loan_applications.id"
+      },
+      {
+        "name": "title",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "kind",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "path",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "version",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "effective_date",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": null
+      },
+      {
+        "name": "product_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": true,
+        "foreign_key": "loan_products.id"
+      },
+      {
+        "name": "pages",
+        "type": "JSON",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "extraction",
+        "type": "JSON",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "reviewed",
+        "type": "Boolean",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "synthetic",
+        "type": "Boolean",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": [
+      {
+        "name": "ix_financial_documents_owner_id",
+        "columns": [
+          "owner_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "document_chunks",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "document_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "financial_documents.id"
+      },
+      {
+        "name": "page",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "section",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "text",
+        "type": "Text",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": [
+      {
+        "name": "ix_document_chunks_document_id",
+        "columns": [
+          "document_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "human_reviews",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "application_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "loan_applications.id"
+      },
+      {
+        "name": "assessment_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "eligibility_assessments.id"
+      },
+      {
+        "name": "reviewer_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id"
+      },
+      {
+        "name": "status",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "comment",
+        "type": "Text",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [],
+    "indexes": [
+      {
+        "name": "ix_human_reviews_application_id",
+        "columns": [
+          "application_id"
+        ],
+        "unique": false
+      }
+    ]
+  },
+  {
+    "name": "final_human_decisions",
+    "columns": [
+      {
+        "name": "id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": true,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "review_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "human_reviews.id"
+      },
+      {
+        "name": "reviewer_id",
+        "type": "Integer",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": "users.id"
+      },
+      {
+        "name": "decision",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "rationale",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      },
+      {
+        "name": "created_at",
+        "type": "String",
+        "length": null,
+        "primary_key": false,
+        "nullable": false,
+        "foreign_key": null
+      }
+    ],
+    "unique": [
+      [
+        "review_id"
+      ]
+    ],
+    "indexes": []
+  }
+]

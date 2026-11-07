@@ -1,0 +1,25 @@
+import { useEffect, useState, useCallback, type ReactNode } from 'react'
+import { Routes, Route, NavLink, Link, useNavigate, useLocation } from 'react-router-dom'
+import { LayoutDashboard, Users, FileText, ScanLine, ChartNoAxesCombined, ShieldCheck, Network, Library, MessagesSquare, Settings2, ArrowUpRight, ArrowRight, Plus, Search, Bell, ChevronDown, LogOut, Download, Loader2, Check, CircleHelp, Menu, X, Sparkles, Clock3, Activity, Landmark, SlidersHorizontal, RefreshCw, Upload, CheckCircle2 } from 'lucide-react'
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, AreaChart, Area, ReferenceLine } from 'recharts'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import { api, errorText, money, exportJSON } from '../api'
+import type { User, Product, Application, Assessment, Doc, Risk, Evidence } from '../types'
+
+import { Badge, Empty, Busy, ErrorBox, Panel, Heading, Stat, ApplicationTable, EvidenceCards, statusTone, colors } from '../components/ui'
+import { useApplication } from '../hooks/useApplication'
+export function ReviewForm({assessment,user}:{assessment:Assessment;user:User}) {
+  const [comment,setComment]=useState(''),[status,setStatus]=useState('REVIEWED'),[review,setReview]=useState<number|null>(null),[decision,setDecision]=useState('DEFERRED'),[rationale,setRationale]=useState(''),[message,setMessage]=useState(''),[error,setError]=useState('')
+  async function save(e:React.FormEvent){e.preventDefault();try{const r=await api.post('/reviews',{application_id:assessment.application_id,assessment_id:assessment.assessment_id,status,comment});setReview(r.data.id);setMessage('Review saved with reviewer identity and timestamp.')}catch(e){setError(errorText(e))}}
+  if(!['admin','reviewer'].includes(user.role))return <Empty>An authorized reviewer role is required to record a human review.</Empty>
+  return <Panel title="Authorized human review" subtitle="Human decisions are stored separately from AI assessments."><div className="padded"><div className="note">Unresolved: {assessment.review.unresolved.join('; ')||'No failed or unknown criteria'}. Unreviewed documents: {assessment.review.unreviewed_documents}.</div><form className="stack" onSubmit={save}><label>Review status<select value={status} onChange={e=>setStatus(e.target.value)}><option value="REVIEWED">Reviewed</option><option value="MORE_INFORMATION_REQUIRED">Request more information</option></select></label><label>Reviewer comments<textarea value={comment} onChange={e=>setComment(e.target.value)} required minLength={5} maxLength={5000}/></label><button className="primary" disabled={!!review}>Save human review</button></form>{review&&status==='REVIEWED'&&<form className="stack decision-form" onSubmit={async e=>{e.preventDefault();try{await api.post('/reviews/'+review+'/decision',{decision,rationale});setMessage('Final human decision recorded. No lending or contractual action was executed.');setReview(null)}catch(e){setError(errorText(e))}}}><h3>Record an authorized human decision</h3><label>Decision<select value={decision} onChange={e=>setDecision(e.target.value)}><option>DEFERRED</option><option>APPROVED</option><option>REJECTED</option></select></label><label>Decision rationale<textarea value={rationale} onChange={e=>setRationale(e.target.value)} required minLength={10}/></label><button className="secondary">Record human decision</button></form>}<ErrorBox text={error}/>{message&&<div className="success" role="status">{message}</div>}</div></Panel>
+}
+export function Reviews({user}:{user:User}) {
+  const {selected,picker,error}=useApplication(),[assessment,setAssessment]=useState<Assessment|null>(null),[reviews,setReviews]=useState<any[]>([]),[failure,setFailure]=useState('')
+  useEffect(()=>{api.get('/reviews').then(r=>setReviews(r.data)).catch(e=>setFailure(errorText(e)))},[])
+  useEffect(()=>{setAssessment(null);if(selected)api.get('/eligibility/'+selected.id).then(r=>setAssessment(r.data)).catch(e=>setFailure(errorText(e)))},[selected])
+  return <><Heading title="Human review desk" description="Bring your judgment to the evidence. Record comments, requests, and authorized decisions."/>{picker}<ErrorBox text={error||failure}/>{assessment&&<ReviewForm key={assessment.assessment_id} assessment={assessment} user={user}/ >}{selected&&!assessment&&<Empty>Run an assessment before recording a review.</Empty>}<Panel title="Review history" subtitle="Auditable reviewer comments and separately recorded human decisions"><div className="list">{reviews.map(r=><div className="review-record" key={r.id}><div className="inline"><b>Application #{r.application_id}</b><Badge tone="green">{r.status.replaceAll('_',' ')}</Badge></div><p>{r.comment}</p><small>Reviewer #{r.reviewer_id} · {new Date(r.created_at).toLocaleString()}</small>{r.human_decision&&<div className="note">Human decision: {r.human_decision.decision} · {r.human_decision.rationale}</div>}</div>)}</div>{!reviews.length&&<Empty>No human reviews recorded yet.</Empty>}</Panel></>
+}
+
