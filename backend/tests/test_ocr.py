@@ -1,25 +1,15 @@
 import io
-from PIL import Image,ImageDraw,ImageFont
+from pathlib import Path
+from PIL import Image
 from ai.documents import extract
 from app.config import settings
 import pytest
 
 
 def scan():
-    image=Image.new('RGB',(1500,450),'white')
-    drawing=ImageDraw.Draw(image)
-    font=None
-    for path in ['C:/Windows/Fonts/arial.ttf','/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf']:
-        try:
-            font=ImageFont.truetype(path,52);break
-        except OSError:
-            pass
-    if font is None:
-        font=ImageFont.load_default(size=52)
-    drawing.text((70,80),'SYNTHETIC INCOME RECORD',font=font,fill='black')
-    drawing.text((70,180),'Monthly income: 50000',font=font,fill='black')
-    drawing.text((70,280),'Monthly debt: 12000',font=font,fill='black')
-    return image
+    # Test identical pixels on every OS; host font fallback changes OCR output.
+    with Image.open(Path(__file__).parent/'fixtures'/'synthetic-income.png') as image:
+        return image.copy()
 
 
 def test_real_local_image_ocr_is_unverified():
@@ -38,7 +28,7 @@ def test_real_local_image_ocr_is_unverified():
 
 
 def test_scanned_pdf_uses_page_level_ocr():
-    data=io.BytesIO();scan().save(data,format='PDF')
+    data=io.BytesIO();scan().save(data,format='PDF',quality=100)
     pages,result=extract('synthetic-scanned.pdf',data.getvalue())
     assert pages[0]['page']==1
     assert pages[0]['method']=='local_ocr'
